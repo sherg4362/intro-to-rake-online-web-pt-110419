@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 namespace :greeting do
   desc 'outputs hello to the terminal'
   task :hello do
@@ -9,6 +10,27 @@ namespace :greeting do
     puts "hola de Rake!"
   end
   
+=======
+namespace :db do
+  desc 'migrate changes to your database'
+  task :migrate => :environment do
+    Student.create_table
+  end
+  
+  task :environment do
+    require_relative './config/environment'
+  end
+  
+  desc 'seed the database with some dummy data'
+  task :seed do
+    require_relative './db/seeds.rb'
+  end
+  
+  desc 'drop into the Pry console'
+    task :console => :environment do
+      Pry.start
+    end
+>>>>>>> 1aebed03e44bfa1e8a84818a5385d82a6e4b91cf
 end
 
 namespace :db do
